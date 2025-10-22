@@ -34,7 +34,17 @@ funcao menu():
                 R:", resposta)
                 
                 se resposta == 1:
-                    imprime(turmas)
+                    cada valor, chave em turmas:
+                        imprime("{chave}: {valor}Alunos")
+                    entrada("Deseja ver os alunos das turmas?(Y/N)
+                            R:", resposta)
+                    se resposta == Y
+                        entrada("Se desejar ver os alunos de uma turma, insira o nome da turma:", turmAluno)
+                        se turmAlunos em turmas.chaves():
+                            cada valor em alunos.valores():
+                                se valor[turma] == turmAluno:
+                                    nomeCompleto = "{valor[nome]} {valor[sobrenome]}"
+                                    imprime(nomeCompleto)
                     continua()
 
                 se resposta == 2:
@@ -45,7 +55,7 @@ funcao menu():
             se opcao == 3:
                 entrada("
                 1-Mostrar todos os alunos.
-                2-Procurar aluno.
+                2-Alterar dados.
                 3-Adicionar aluno.
                 R:", resposta)
                 
@@ -58,9 +68,19 @@ funcao menu():
                     continua()
 
                 se resposta == 2:
-                    entrada("Insira o nome do aluno:", nome)
-                    cada valor == "nome" em alunos.valor():
+                    cada valor em alunos.valores():
                         imprime(valor)
+                    enquanto resposta != 2:
+                        entrada("Escolha uma opção
+                            1-Alterar dados
+                            2-Sair",resposta)
+                        se resposta == 1:
+                            entrada("Insira o nome completo do aluno:", nomeCompleto)
+                            se nomeCompleto em alunos.chaves():
+                                alterarAlunos(nomeCompleto)
+                                continua()
+                        opcaoInvalida()
+                    
                     continua()
                 
                 se resposta == 3:
@@ -68,21 +88,49 @@ funcao menu():
                 opcaoInvalida()
             
             opcaoInvalida()
-
-                
+          
     retorne opcao
 
 funcao opcaoInvalida():
     imprime("Opção invalida, tente novamente.")
 
-funcao adicionarMedia():
-    lista = []
-    entrada("Quantos testes houve no semestre?/nR:", testes)
-    enquanto cI < testes:
-        entrada("Insira o valor do {cI} teste:", nota)
+funcao adicionarAluno(alunos):    
+    entrada("Nome:", nome)
+    entrada("Sobrenome:", sobrenome)
+    entrada("Idade:", idade)
+    entrada("Turma:", turma)
+    entrada("Email:", email)
 
-        cI++
+    nomeCompleto = "{nome} {sobrenome}"
+    calcularMedia()
+    alunos[nomeCompleto] = ('nome' -> nome, 'sobrenome' -> sobrenome, 'idade' -> idade, 'turma' -> turma, 'email' -> email, 'media' -> media)
 
+funcao alterarAluno(nomeCompleto):
+    cada chave, valor em nomeCompleto:
+        entrada("{chave}:", dado)
+        nomeCompleto[chave] = dado
+    immprime("Dados alterados com sucesso.")
+
+funcao calcularMedia():
+    cI = 0
+    media = 0
+    enquanto cI < tamanho(disciplinas):
+        entrada("Insira a nota da {disciplinas[cI}:", nota)
+        media = media + nota
+    media = media/(cI + 1)
+
+    retorne media
+
+funcao adicionarTurma():
+    entrada("Insira o nome da turma:", turma)
+    entrada("Insira o número de alunos da turma:", numeroAlunos)
+    se turma em turmas.chaves():
+        imprime("Já existe uma turma com esse número. Tente novamente)
+        retorne
+    se numero NAO INT:
+        imprime("Número de alunos Invalido.")
+        retorne
+    turmas[turma] = numeroAlunos
 
 enquanto opcao != 4:
     menu()
