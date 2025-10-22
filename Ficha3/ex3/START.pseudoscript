@@ -132,6 +132,5 @@ funcao adicionarTurma():
         retorne
     turmas[turma] = numeroAlunos
 
-enquanto opcao != 4:
-    menu()
+menu()
 
