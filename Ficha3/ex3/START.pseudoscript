@@ -1,0 +1,89 @@
+funcao menu():
+    disciplinas = ['Ciencias', 'Programação', 'Arquitetura de sistemas', 'Hardware']
+    turmas = ()
+    alunos = ()
+    enquanto opcao != 4:
+        entrada("Bem vindo ao programa.
+
+            1-Disciplinas.
+            2-Turmas.
+            3-Alunos.
+            4-Sair.
+            R:", opcao)
+
+            se opcao == 1:
+                entrada("
+                1-Mostrar disciplinas
+                2-Adicionar disciplina
+                R:", resposta)
+
+                se resposta == 1:
+                    imprime(disciplinas)
+                    continua()
+                se resposta == 2:
+                    entrada("Insira o nome da disciplina: ", disciplina)
+                    disciplinas.adicionar(disciplina)
+                    continua()
+                
+                opcaoInvalida()
+
+            se opcao == 2:
+                entrada("
+                1-Mostrar turmas
+                2-Adicionar turma
+                R:", resposta)
+                
+                se resposta == 1:
+                    imprime(turmas)
+                    continua()
+
+                se resposta == 2:
+                    adicionarTurma()
+                    continua()
+                opcaoInvalida()
+
+            se opcao == 3:
+                entrada("
+                1-Mostrar todos os alunos.
+                2-Procurar aluno.
+                3-Adicionar aluno.
+                R:", resposta)
+                
+                se resposta == 1:
+                    cada chave, valor em alunos:
+                        imprime("
+                        {chave}:
+                        {idade} {turma} {media}
+                        {email}")
+                    continua()
+
+                se resposta == 2:
+                    entrada("Insira o nome do aluno:", nome)
+                    cada valor == "nome" em alunos.valor():
+                        imprime(valor)
+                    continua()
+                
+                se resposta == 3:
+                    adicionarAluno()
+                opcaoInvalida()
+            
+            opcaoInvalida()
+
+                
+    retorne opcao
+
+funcao opcaoInvalida():
+    imprime("Opção invalida, tente novamente.")
+
+funcao adicionarMedia():
+    lista = []
+    entrada("Quantos testes houve no semestre?/nR:", testes)
+    enquanto cI < testes:
+        entrada("Insira o valor do {cI} teste:", nota)
+
+        cI++
+
+
+enquanto opcao != 4:
+    menu()
+
