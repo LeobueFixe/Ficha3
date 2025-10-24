@@ -35,10 +35,10 @@ funcao adicionarContato(lista):
 funcao mostrarContatos(lista):
     cada valor em lista.valores():
         imprime("
-        {nome} {apelido}
-        {numero}
-        {email}
-        {morada}")
+        {valor.nome} {valor.apelido}
+        {valor.numero}
+        {valor.email}
+        {valor.morada}")
     
 
 enquanto opcao =! 3:

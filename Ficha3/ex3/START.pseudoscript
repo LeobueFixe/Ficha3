@@ -109,8 +109,8 @@ enquanto opcao != 4:
             cada chave, valor em alunos:
                 imprime("
                 {chave}:
-                {idade} {turma} {media}
-                {email}")
+                {valor.idade} {valor.turma} {valor.media}
+                {valor.email}")
             continua()
 
         se resposta == 2:

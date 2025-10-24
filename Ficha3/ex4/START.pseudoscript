@@ -24,16 +24,18 @@ funcao adicionarProduto(produtos):
         continua()
     produtos[nome] = adicionar
 
+    retorne produtos
+
 funcao alterarProduto(produtos):
     entrada("Insira o nome do produto que deseja alterar:", nome)
     cada chave, valor em produto:
         se chave == nome:
-            imprime("{chave}: {preco}€ {quantidade}
-            {descricao}")
+            imprime("{chave}: {valor.preco}€ {valor.quantidade}
+            {valor.descricao}")
             adicionarProduto(produtos)
             continua()
 
-    retorne produto
+    retorne produtos
 
 produtos = ()
 
@@ -41,7 +43,7 @@ enquanto opcao != 3:
     menu()
     opcao = menu()
     se opcao == 1:
-        adicionarProduto(produtos)
+        produtos = adicionarProduto(produtos)
         continua()
     
     se opcao == 2:

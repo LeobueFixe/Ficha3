@@ -12,7 +12,6 @@ temporaria = 0
 contadorPositivo = 0
 contadorNegativo = -1
 jogadores = ()
-lista = [0]
 
 enquanto opcao != 4:
     menu()
@@ -33,34 +32,35 @@ enquanto opcao != 4:
             continua()
         imprime("Nome invalido")
     se opcao == 3:
-        novaOrdem = ()
+        ranking = []
         enquanto contadorPositivo < tamanho(jogadores):
-            cada valor, chave em jogadores:
-                se valor > temporaria:
-                    temporaria = valor
-
-            
-
-
-
-        enquanto contadorPositivo < tamanho(jogadores):
-            cada valor,chave em jogadores:
-                se valor > temporaria E valor > lista[-1] :
-                    se lista[-1] == 0:
-                        lista[-1] == valor
-                        continua()
-                    temporaria = valor
-            contadorPositivo++
-            lista.adicionar(temporaria)
+            cada chave, valor em jogadores:
+                valorMax = findMax(jogadores)
+                se chave EM ranking:
+                    continua()
+                ranking.adicionar(chave)
         
-        contadorPositivo = 0
-        enquanto contadorPositivo < tamanho(jogadores):
-            cada valor, chave em jogadores:
-                se valor == lista[contadorNegativo]:
-                    imprime("{chave}: {valor}")
+        cada jogador em ranking:
+            imprime("{jogador}: {jogadores[jogador]}")
+                  
+        # enquanto contadorPositivo < tamanho(jogadores):
+        #     cada valor,chave em jogadores:
+        #         se valor > temporaria E valor > lista[-1] :
+        #             se lista[-1] == 0:
+        #                 lista[-1] == valor
+        #                 continua()
+        #             temporaria = valor
+        #     contadorPositivo++
+        #     lista.adicionar(temporaria)
+        
+        # contadorPositivo = 0
+        # enquanto contadorPositivo < tamanho(jogadores):
+        #     cada valor, chave em jogadores:
+        #         se valor == lista[contadorNegativo]:
+        #             imprime("{chave}: {valor}")
                
-            contadorPositivo++
-            contadorNegativo--
+        #     contadorPositivo++
+        #     contadorNegativo--
 
         
 
